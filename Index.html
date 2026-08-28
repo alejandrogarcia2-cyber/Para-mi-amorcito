@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi amorcito ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+#sobre{
+width:320px;
+height:220px;
+background:#d72638;
+position:relative;
+cursor:pointer;
+border-radius:10px;
+box-shadow:0 15px 35px rgba(0,0,0,.4);
+display:flex;
+justify-content:center;
+align-items:center;
+transition:1s;
+}
+
+#sobre::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+clip-path:polygon(0 0,50% 50%,100% 0);
+background:#b71c2b;
+}
+
+#sobre h1{
+color:white;
+z-index:2;
+text-align:center;
+padding:20px;
+}
+
+#contenido{
+display:none;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:auto;
+background:white;
+padding:20px;
+text-align:center;
+}
+
+#carta{
+font-size:18px;
+line-height:1.6;
+color:#444;
+margin-bottom:20px;
+}
+
+.galeria img{
+width:90%;
+max-width:300px;
+margin:15px;
+border-radius:15px;
+box-shadow:0 8px 15px rgba(0,0,0,.3);
+animation:aparecer 1.2s;
+}
+
+@keyframes aparecer{
+from{opacity:0;transform:scale(.8);}
+to{opacity:1;transform:scale(1);}
+}
+
+.corazon{
+position:fixed;
+color:red;
+font-size:25px;
+animation:subir 6s linear infinite;
+}
+
+@keyframes subir{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-120vh);}
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="sobre">
+<h1>💌<br>Para mi amorcito ❤️<br><br>Toca aquí</h1>
+</div>
+
+<div id="contenido">
+
+<h1>❤️ Para el amor de mi vida ❤️</h1>
+
+<p id="carta">
+
+Gracias por cada sonrisa, por cada abrazo y por cada momento que hemos compartido.
+
+Estas fotos son un pequeño recuerdo de todo lo feliz que soy a tu lado.
+
+Eres mi lugar favorito y espero que sigamos escribiendo nuestra historia por muchos años más.
+
+<br><br>
+
+<b>Te amo infinitamente. ❤️</b>
+
+</p>
+
+<div class="galeria">
+
+<img src="foto1.jpg">
+<img src="foto2.jpg">
+<img src="foto3.jpg">
+<img src="foto4.jpg">
+<img src="foto5.jpg">
+<img src="foto6.jpg">
+
+</div>
+
+</div>
+
+<audio id="musica" loop>
+<source src="Pequeña serenta diurna - Silvio Rodríguez.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let sobre=document.getElementById("sobre");
+let contenido=document.getElementById("contenido");
+let musica=document.getElementById("musica");
+
+sobre.onclick=function(){
+
+sobre.style.display="none";
+contenido.style.display="block";
+
+musica.play();
+
+setInterval(crearCorazon,400);
+
+}
+
+function crearCorazon(){
+
+let corazon=document.createElement("div");
+
+corazon.className="corazon";
+
+corazon.innerHTML="❤️";
+
+corazon.style.left=Math.random()*100+"vw";
+
+corazon.style.fontSize=(20+Math.random()*30)+"px";
+
+document.body.appendChild(corazon);
+
+setTimeout(()=>{
+
+corazon.remove();
+
+},6000);
+
+}
+
+</script>
+
+</body>
+</html>
